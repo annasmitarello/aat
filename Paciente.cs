@@ -30,6 +30,13 @@ namespace AdministracionSanatorio
         {
             IntervencionesRealizadas.Add(intervencion);
         }
+
+        // Sobrescribir ToString para mostrar la información del paciente
+        public override string ToString()
+        {
+            string obraSocialInfo = ObraSocial != null ? $"{ObraSocial.Nombre} - Cobertura: {ObraSocial.Cobertura}%" : "Sin obra social";
+            return $"DNI: {DocumentoIdentidad} | Nombre: {NombreApellido} | Teléfono: {Telefono} | Obra Social: {obraSocialInfo}";
+        }
     }
 
     public class ObraSocial
@@ -43,5 +50,6 @@ namespace AdministracionSanatorio
             Cobertura = cobertura;
         }
     }
+}
 }
 

@@ -30,30 +30,23 @@ namespace AdministracionSanatorio
             }
         }
 
-        // Método para buscar un paciente
-        public Paciente BuscarPacientePorDocumento(string documentoIdentidad)
+        // Método para listar los pacientes
+        public void ListarPacientes()
         {
-            return pacientes.Find(p => p.DocumentoIdentidad == documentoIdentidad);
+            if (pacientes.Count == 0)
+            {
+                Console.WriteLine("No hay pacientes registrados.");
+            }
+            else
+            {
+                Console.WriteLine("Lista de pacientes:");
+                foreach (var paciente in pacientes)
+                {
+                    Console.WriteLine(paciente.ToString());
+                }
+            }
         }
 
-        // Método para agregar un doctor
-        public void AgregarDoctor(Doctor doctor)
-        {
-            doctores.Add(doctor);
-        }
-
-        // Método para obtener la lista de pacientes
-        public List<Paciente> ObtenerPacientes()
-        {
-            return pacientes;
-        }
-
-        // Método para obtener la lista de doctores
-        public List<Doctor> ObtenerDoctores()
-        {
-            return doctores;
-        }
-
-        // Puedes agregar más métodos según lo necesites (como programar una intervención, generar reportes, etc.)
+        // Otros métodos para buscar pacientes, agregar doctores, etc.
     }
 }
